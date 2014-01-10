@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "junit:junit:4.11"
+    compile group: 'com.google.guava', name: 'guava', version: '12.0'
+    compile group: 'com.googlecode.soundlibs', name:'jlayer', version: '1.0.1-1'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+
+mainClassName = "gui.MainFrame"
