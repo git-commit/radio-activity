@@ -26,7 +26,7 @@ public class Time {
 	
 	public static final ImmutableSet<String> validTimeUnits = ImmutableSet.of("nanoseconds","ns","microseconds","us","milliseconds","ms","seconds","s","minutes","m","hours","h","days","d");
 
-	/**@param unit Valid: nanoseconds,ns,microseconds,�s,milliseconds,ms,seconds,s,minutes,m,hours,h,days,d*/
+	/**@param unit Valid: nanoseconds,ns,microseconds,us,milliseconds,ms,seconds,s,minutes,m,hours,h,days,d*/
 	public Time(long time, String unit){
 		if(!Time.validTimeUnits.contains(unit)){
 			throw new InvalidParameterException("Wrong time unit!");
