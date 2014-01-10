@@ -25,11 +25,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.ResourceBundle;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -129,19 +131,21 @@ public class MainFrame extends JFrame implements Observer {
 		jsp_right = new JScrollPane(panel_right);
 
 		// Buttons Left
-		btn_addPodcast = new JButton(new ImageIcon("icon/plus.png"));
+        // Get current classloader
+        ClassLoader cl = this.getClass().getClassLoader();
+		btn_addPodcast = new JButton(new ImageIcon(cl.getResource("icon/plus.png")));
 		btn_addPodcast.setToolTipText("Add a Podcast");
-		btn_removePodcast = new JButton(new ImageIcon("icon/minus.png"));
+		btn_removePodcast = new JButton(new ImageIcon(cl.getResource("icon/minus.png")));
 		btn_removePodcast.setToolTipText("Remove Selected Podcast");
-		btn_updatePodcast =new JButton(new ImageIcon("icon/reload.png"));
-		btn_updatePodcast.setToolTipText("Upadte Selected Podcast");
-		btn_toggleFav = new JButton(new ImageIcon("icon/heart_stroke_big.png"));
+		btn_updatePodcast =new JButton(new ImageIcon(cl.getResource("icon/reload.png")));
+		btn_updatePodcast.setToolTipText("Update Selected Podcast");
+		btn_toggleFav = new JButton(new ImageIcon(cl.getResource("icon/heart_stroke_big.png")));
 		btn_toggleFav.setToolTipText("Toggle Selected Episode Fav-status");
-		btn_togglePlayed = new JButton(new ImageIcon("icon/played_big.png"));
+		btn_togglePlayed = new JButton(new ImageIcon(cl.getResource("icon/played_big.png")));
 		btn_togglePlayed.setToolTipText("Toggle Selected Episode Played-status");
 		// Buttons Right
-		btn_playEpisode = new JButton(new ImageIcon("icon/play.png"));
-		btn_pauseEpisode = new JButton(new ImageIcon("icon/pause.png"));
+		btn_playEpisode = new JButton(new ImageIcon(cl.getResource("icon/play.png")));
+		btn_pauseEpisode = new JButton(new ImageIcon(cl.getResource("icon/pause.png")));
 
 		this.setLayout(gbl);
 		addComp(this, gbl, label_podcast, 					1, 1, 1, 1, 0, 0);
