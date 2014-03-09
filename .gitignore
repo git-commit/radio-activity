@@ -3,3 +3,6 @@ Debug
 */bin/*
 *.orig
 .idea
+.gradle
+build
+*.iml
