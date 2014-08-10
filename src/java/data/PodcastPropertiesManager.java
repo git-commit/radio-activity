@@ -17,10 +17,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class PodcastPropertiesManager {
 	private static final String propertiesPath = System.getProperty("user.home")+File.separator+".radio.ini";
 	private static PodcastPropertiesManager me;
+    private static final Logger log = Logger.getLogger(PodcastPropertiesManager.class.getName());
 
 	public static final String LIBRARY_FILE = "library.file";
 	public static final String EPISODES_PATH = "episodes.path";
@@ -47,8 +49,8 @@ public class PodcastPropertiesManager {
 				in.close();
 			} catch (FileNotFoundException e) {
 				properties = new Properties();
-				e.printStackTrace();
-				this.createDefaultPropertys();	
+				this.createDefaultProperties();
+                log.info("Created default property file.");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -63,7 +65,7 @@ public class PodcastPropertiesManager {
 	/**
 	 * Adds Default Properties To new Property Object
 	 */
-	private void createDefaultPropertys() {
+	private void createDefaultProperties() {
 		properties.put(LIBRARY_FILE, LIBRARY_FILE_DEFAULT);
 		properties.put(EPISODES_PATH, EPISODES_PATH_DEFAULT);
 		properties.put(PLAYER_TEMP, PLAYER_TEMP_DEFAULT);
